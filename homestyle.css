@@ -1,423 +1,625 @@
+/*======================
+Global Reset / Defaults
+======================*/
+
 :root {
-  --main-color: oklch(60% 0.19 28 / 0.70);
-  --primary-color: oklch(58% 0.22 26 / 0.9);
-  --secondary-color: oklch(60% 0.24 33 / 0.83);
-  --body-bg: oklch(12% 0.08 200 / 0.95);
-  --header-bg: oklch(13% 0 180 / 0.8);
-  --nav-bg: oklch(22% 0 0);
+  --header-bg: oklch(8% 0.0025 260);
+  --header-color: oklch(58% 0.22 26 / 0.9);
+  --nav-bg: oklch(15% 0 0);
+  --hamburgerLine-color: oklch(60% 0.24 33 / 0.83);
+  --body-bg: oklch(12% 0.0025 260);
   --header-font: Montserrat;
+  --headerText-color: oklch(55% 0.18 28);
+  --text-color: oklch(62% 0.00005 29);
   --paragraph-font: Merriweather Sans;
-  --card-color: oklch(40% 0.14 27);
+  --cardHeader-color: oklch();
+  --card-color: oklch(15% 0.007 215);
+  --button-color: oklch(55% 0.15 28);
+  --accent-color: oklch(40% 0.025 260);
+}
+html {
+  scroll-behavior: auto;
 }
 body {
   padding: 0px;
   margin: 0px;
   background: var(--body-bg);
+  color: var(--text-color);
 }
+
+/*==========
+Base Elements
+==========*/
+
 body p {
+  /*===== Size / Spacing =====*/
   letter-spacing: 0.01em;
+  line-height: 1.45;
+  /*===== Text / Font =====*/
   font-family: var(--paragraph-font);
   font-size: 15px;
-  line-height: 1.7em;
 }
 #falsebody {
-  background-color: oklch(8% 0.04 220 / 0.8);
+  /*===== Visual / Decoration =====*/
+  background: oklch(11% 0.002 270);
 }
 h1 {
+  /*===== Text / Font =====*/
   font-family: var(--header-font);
 }
+.heroImage,
+.everydayImage,
+#serviceArea,
+.BC-Image {
+  border-radius: 4px;
+  box-shadow: 0 4px 10px oklch(0% 0 0 / 0.35);
+}
+/*=====
+Header
+=====*/
+
 header {
+  /*===== Display / Box Type =====*/
   display: flex;
+  /*===== Layout / Flow =====*/
   justify-content: space-evenly;
   flex-direction: column;
+  /*===== Visual / Decoration =====*/
   background-color: var(--header-bg);
 }
 .header-logo {
-  max-height: 32px;
+  /*===== Positioning =====*/
   position: relative;
   left: -6px;
-  top: 6px
+  top: 6px;
+  /*===== Size / Spacing =====*/
+  max-height: 32px;
 }
 .business-name {
-  /*===== ALIGNMENT =====*/
-
+  /*===== Layout / Flow =====*/
   align-self: center;
-  
-  /*===== SIZE =====*/
-  
+  /*===== Size / Spacing =====*/
+  margin-top: 15px;
+  margin-bottom: 0px;
+  /*===== Text / Font =====*/
   font-size: 1.5rem;
   font-weight: 800;
-  
-  /*===== SPACING =====*/
-  
   letter-spacing: 0.02rem;
-  margin-top: 15px;
-  margin-bottom: 0px;
-  
-  /*===== DECORATIONS =====*/
-  
-  color: var(--primary-color);
-
+  /*===== Visual / Decoration =====*/
+  color: var(--header-color);
 }
 .header-contact {
-  /*===== ALIGNMENT =====*/
-
+  /*===== Layout / Flow =====*/
   align-self: center;
-  
-  /*===== SIZE =====*/
-  
-  font-size: 18px;
-  font-weight: 600;
-  
-  /*===== SPACING =====*/
-  
-  line-height: 25px;
+  /*===== Size / Spacing =====*/
   margin-top: 15px;
   margin-bottom: 0px;
-  
-  /*===== DECORATIONS =====*/
-  
-  color: var(--primary-color);
+  /*===== Text / Font =====*/
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
   text-decoration: underline;
-
+  color: var(--button-color);
 }
 .bottom-header-contact {
   /*===== BOTTOM OF HEADER HEIGHT CONTROL =====*/
-  
   margin-bottom: 20px;
-
 }
 .nav-menu {
-  /*===== SIZE/BOX =====*/
-
-  width: 30px;
-  height: 30px;
-
-  /*===== LAYOUT =====*/
-
+  /*===== Display / Box Type =====*/
   display: flex;
+  /*===== Layout / Flow =====*/
   flex-direction: column;
   justify-content: space-around;
-
-  /*===== POSITION =====*/
-
+  /*===== Positioning =====*/
   position: fixed;
   top: 5px;
   right: 8px;
   z-index: 999;
-
-  /*===== VISUAL =====*/
-
+  /*===== Size / Spacing =====*/
+  width: 30px;
+  height: 30px;
+  /*===== Visual / Decoration =====*/
   background-color: var(--nav-bg);
   border-radius: 5px;
   border-left: 2px solid oklch(50% 0 0);
   border-top: 2px solid oklch(50% 0 0);
   border-right: 3px solid oklch(0% 0 0);
   border-bottom: 3px solid oklch(0% 0 0);
+  /*===== Interaction =====*/
   cursor: pointer;
-
 }
+.hamburger {
+  /*===== Layout / Flow =====*/
+  align-self: center;
+  /*===== Size / Spacing =====*/
+  width: 100%;
+  height: 3px;
+  padding-right: 2px;
+  padding-left: 2px;
+  margin: 0px;
+  /*===== Visual / Decoration =====*/
+  background-color: var(--hamburgerLine-color);
+  border-radius: 25%;
+}
+/*===== State / Accessibility =====*/
 .nav-menu:active {
   border-left: 3px solid oklch(0% 0 0);
   border-top: 3px solid oklch(0% 0 0);
   border-right: 2px solid oklch(50% 0 0);
   border-bottom: 2px solid oklch(50% 0 0);
 }
-.hamburger {
-  /*===== SIZE/BOX =====*/
 
-  width: 100%;
-  height: 3px;
 
-  /*===== LAYOUT =====*/
+/*===
+Hero
+===*/
 
-  align-self: center;
-  padding-right: 2px;
-  padding-left: 2px;
-  margin: 0px;
-
-  /*===== VISUAL =====*/
-
-  background-color: var(--secondary-color);
-  border-radius: 25%;
-}
 main {
+  /*===== Size / Spacing =====*/
   padding: 3px 10px;
+  /*===== Visual / Decoration =====*/
   border-radius: 15px;
 }
 .heroImage {
+  /*===== Display / Box Type =====*/
+  display: block;
+  /*===== Size / Spacing =====*/
   max-height: 280px;
   max-width: 100%;
   padding: 5px 0px 15px 0px;
-  display: block;
   margin: 0 auto;
 }
-main p {
-  color: var(--main-color);
-}
-main h2 {
+main h2, main h3 {
+  /*===== Text / Font =====*/
   font-family: var(--header-font);
   font-size: 20px;
   font-weight: 700;
-  color: var(--primary-color);
-}
-main h3 {
-  font-family: var(--header-font);
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--primary-color);
+  color: var(--headerText-color);
 }
 main li {
+  /*===== Text / Font =====*/
   font-size: 18px;
-  color: var(--main-color);
 }
 .howToGroup {
+  /*===== Size / Spacing =====*/
   margin-top: 4vh;
+  /*===== Text / Font =====*/
+  line-height: 1.7;
 }
 #howTo {
+  /*===== Text / Font =====*/
   font-size: 17px;
   font-weight: 700;
+  color: var(--headerText-color);
 }
+
+/*=========
+Trust Section
+=========*/
+
 .whyUs {
+  /*===== Size / Spacing =====*/
   margin: 7vh 0vw;
 }
 .whyUs p {
+  /*===== Size / Spacing =====*/
   margin: 2vh 0vw;
 }
+
+/*===========
+Business-Card
+===========*/
+
 .midPageCTA {
+  /*===== Size / Spacing =====*/
   height: 53vh;
 }
 .midPageCTA p {
+  /*===== Layout / Flow =====*/
+  text-align: center;
+  /*===== Size / Spacing =====*/
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 #mini-CTAHeader {
+  /*===== Layout / Flow =====*/
   justify-self: center;
-  color: var(--primary-color);
+  /*===== Size / Spacing =====*/
+  padding-bottom: 15px;
+  /*===== Text / Font =====*/
   font-size: 14.6px;
   font-weight: 800;
-  padding-bottom: 5px;
+  color: var(--headerText-color);
 }
 .BC-Image {
+  /*===== Display / Box Type =====*/
+  display: block;
+  /*===== Size / Spacing =====*/
   max-height: 280px;
   max-width: 100%;
   padding-bottom: 5px;
-  display: block;
   margin: 0 auto;
 }
+
+/*==============
+Navigation Cards
+===============*/
+
 nav {
-  background-color: var(--body-bg);
+  /*===== Display / Box Type =====*/
   display: flex;
+  /*===== Layout / Flow =====*/
   flex-direction: column;
   align-items: center;
+  /*===== Size / Spacing =====*/
   padding: 3px 10px;
+  /*===== Visual / Decoration =====*/
+  background-color: var(--body-bg);
 }
 nav section {
-  background-color: var(--card-color);
+  /*===== Positioning =====*/
+  position: relative;
+  /*===== Size / Spacing =====*/
   padding: 0px 10px;
   border: 3px solid black;
   border-radius: 15px;
+  /*===== Visual / Decoration =====*/
+  background:
+    repeating-linear-gradient(
+      45deg,
+      oklch(18% 0.01 230) 0px,
+      oklch(18% 0.01 230) 4px,
+      oklch(12% 0.01 230) 4px,
+      oklch(12% 0.01 230) 8px
+    ),
+    linear-gradient(
+      145deg,
+      oklch(18% 0.015 230),
+      oklch(9% 0.008 230)
+    );
+
+  border: 3px solid oklch(7% 0.01 240);
+  border-top: 4px solid var(--button-color);
+  box-shadow: 0 8px 18px oklch(0% 0 0 / 0.35);
+}
+.navCard {
+  /*===== Positioning =====*/
   position: relative;
+  /*===== Size / Spacing =====*/
+  padding-bottom: 25px;
 }
 nav h3 {
-  font-family: var(--header-font);
-  margin: 10px 0px 0px 0px;
+  /*===== Layout / Flow =====*/
   text-align: center;
+  /*===== Size / Spacing =====*/
+  margin: 20px 0px 10px 0px;
+  /*===== Text / Font =====*/
+  font-family: var(--header-font);
   font-size: 20px;
+  color: var(--headerText-color);
 }
-section p {
+nav p {
+  /*===== Text / Font =====*/
   font-family: var(--paragraph-font);
-  font-size: 14px;
+  font-size: 16px;
+  color: oklch(68% 0.00005 29);
 }
 nav ul {
-  list-style: circle;
+  /*===== Size / Spacing =====*/
   line-height: 1.2rem;
-  font-size: 14px;
+  /*===== Text / Font =====*/
+  font-size: 16px;
+  color: oklch(68% 0.00005 29);
+  /*===== Visual / Decoration =====*/
+  list-style: circle;
 }
 nav li {
+  /*===== Size / Spacing =====*/
   padding-bottom: 3px;
+  line-height: 1.45;
+  /*===== Text / Font =====*/
   font-family: var(--paragraph-font);
+  /*===== Overflow / Scroll =====*/
   overflow-wrap: break-word;
 }
-nav div p {
-  color: var(--main-color);
-  font-size: 12px;
-}
+
+/*============
+Services Section
+============*/
+
 #service-card {
+  /*===== Size / Spacing =====*/
   width: 81vw;
   margin-top: 3vh;
 }
 .everydayVC {
-  margin-bottom: 30px;
+  /*===== Size / Spacing =====*/
+  margin-bottom: 20px;
 }
 .everydayImage {
+  /*===== Display / Box Type =====*/
+  display: block;
+  /*===== Size / Spacing =====*/
   max-height: 280px;
   max-width: 100%;
   padding-top: 15px;
-  display: block;
   margin: 0 auto;
 }
 #mini-header {
+  /*===== Text / Font =====*/
   color: var(--primary-color);
   font-size: 14px;
   font-weight: 600;
 }
+
+/*=========
+Service Area
+=========*/
+
 #serviceArea-card {
+  /*===== Size / Spacing =====*/
   width: 81vw;
 }
 .flexlist {
+  /*===== Display / Box Type =====*/
   display: flex;
+  /*===== Layout / Flow =====*/
   justify-content: flex-end;
+  /*===== Positioning =====*/
   position: relative;
   left: 15px;
-  color: black;
 }
 #serviceArea {
-  max-height: 280px;
+  /*===== Display / Box Type =====*/
+  display: block;
+  /*===== Size / Spacing =====*/
+  max-height: 250px;
   max-width: 100%;
   padding-top: 15px;
-  display: block;
   margin: 0 auto;
 }
 .serviceAreaVC {
-  margin-bottom: 30px;
+  /*===== Size / Spacing =====*/
+  margin-bottom: 15px;
 }
+
+/*======
+About Us
+======*/
+
 #aboutUs-card {
+  /*===== Size / Spacing =====*/
   max-width: 65vw;
   margin: 2vh;
 }
 #aboutUs-card .miniHeroImage {
-  max-width: 100%;
+  display: block;
+  /*===== Size / Spacing =====*/
+  max-width: 90%;
   max-height: 250px;
-  margin-top: 15px;
+  margin: 10px auto;
 }
+.seeMore-Anchor {
+  position: relative;
+}
+#summary {
+  position: absolute;
+  bottom: 42px;
+  right: 105px;
+  text-decoration: underline;
+}
+#summary-text {
+  margin-bottom: 35px;
+}
+
+/*========
+Prior Jobs
+========*/
+
 #priorJobs-card {
+  /*===== Size / Spacing =====*/
   width: 73vw;
   margin: 4vh;
 }
 #priorJobs-card div:first-of-type {
+  /*===== Size / Spacing =====*/
   margin-top: 15px;
 }
 .priorJob {
+  /*===== Size / Spacing =====*/
   margin-top: 25px;
 }
 .gallery {
+  /*===== Display / Box Type =====*/
   display: flex;
+  /*===== Size / Spacing =====*/
+  margin: 10px 0px 20px 0px;
 }
 .priorImg {
+  /*===== Size / Spacing =====*/
   max-width: 50%;
   max-height: 250px;
   margin-bottom: 0px;
 }
-.priorJob p {
-  color: black;
-}
-.navCard {
-  position: relative;
-  padding-bottom: 20px;
-}
+
+/*================
+Navigation Buttons
+=================*/
+
 .navlink {
+  /*===== Positioning =====*/
+  position: absolute;
+  right: 5px;
+  bottom: -5px;
+  /*===== Size / Spacing =====*/
+  padding: 2px 10px;
+  margin-bottom: 15px;
+  /*===== Text / Font =====*/
   text-decoration: underline;
-  color: var(--primary-color);
+  color: var(--button-color);
+  /*===== Visual / Decoration =====*/
   border-left: 2px solid oklch(50% 0 0);
   border-top: 2px solid oklch(50% 0 0);
   border-right: 3px solid oklch(0% 0 0);
   border-bottom: 3px solid oklch(0% 0 0);
   border-radius: 5px;
   background: var(--body-bg);
-  margin-bottom: 15px;
-  position: absolute;;
-  right: 5px;
-  bottom: -5px;
-  padding: 2px 10px;
 }
+/*===== State / Accessibility =====*/
 .navlink:hover {
+  /*===== Interaction =====*/
   cursor: pointer;
 }
 .navlink:active {
+  /*===== Visual / Decoration =====*/
   border-left: 3px solid oklch(0% 0 0);
   border-top: 3px solid oklch(0% 0 0);
   border-right: 2px solid oklch(50% 0 0);
   border-bottom: 2px solid oklch(50% 0 0);
 }
+
+/*===========
+Contact / Hours
+===========*/
+
 #contact {
-  color: var(--primary-color);
+  /*===== Size / Spacing =====*/
   padding-left: 10px;
+  /*===== Text / Font =====*/
+  color: var(--primary-color);
 }
 #contact h3 {
+  /*===== Text / Font =====*/
   font-size: 18px;
+  color: var(--headerText-color);
 }
 #contact p {
+  /*===== Text / Font =====*/
+  color: var(--button-color);
   text-decoration: underline;
 }
 #business-hours {
-  border: 2px solid var(--main-color);
+  /*===== Size / Spacing =====*/
   margin-right: 10px;
+  /*===== Visual / Decoration =====*/
+  border: 2px solid var(--accent-color);
 }
 #business-hours p {
+  /*===== Display / Box Type =====*/
   display: grid;
+  /*===== Layout / Flow =====*/
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: center;
+  /*===== Size / Spacing =====*/
   gap: 1rem;
   margin: 0;
   padding: 2px 15px 0px 0px;
-  border-top: 2px solid var(--main-color);
-  color: var(--main-color);
+  /*===== Text / Font =====*/
+  color: var(--text-color);
+  /*===== Visual / Decoration =====*/
+  border-top: 2px solid var(--accent-color);
 }
 #business-hours p:first-child {
+  /*===== Visual / Decoration =====*/
   border: none;
 }
 #business-hours span {
-  border-left: 2px solid var(--main-color);
-  width: 100%;
+  /*===== Layout / Flow =====*/
   text-align: center;
+  /*===== Size / Spacing =====*/
+  width: 100%;
   margin-top: -2px;
   padding-left: 10px;
+  /*===== Visual / Decoration =====*/
+  border-left: 2px solid var(--accent-color);
 }
+
+/*====
+Footer
+====*/
+
+#footer {
+  display: inline-block;
+}
+
+/*================
+Media Queries: Mobile
+================*/
+
 @media (min-width: 270px) {
+  #mini-CTAHeader {
+    /*===== Text / Font =====*/
+    font-size: 16px;
+    font-weight: 800;
+  }
   .flexlist {
+    /*===== Display / Box Type =====*/
     display: flex;
+    /*===== Layout / Flow =====*/
     justify-content: space-between;
-    color: black;
-    transform: translateX(-47px);
+    /*===== Motion =====*/
+    transform: translateX(-68px);
   }
   #listOne {
+    /*===== Size / Spacing =====*/
     padding-left: 45px;
   }
 }
-@media (min-width: 320px) {
+@media (min-width: 285px) {
   .flexlist {
-    justify-content: center;
-    padding-left: 50px;
+    /*===== Motion =====*/
+    transform: translateX(-52px);
   }
 }
 @media (min-width: 320px) {
+  #mini-CTAHeader {
+    /*===== Text / Font =====*/
+    font-size: 18px;
+  }
   .flexlist {
-    padding-left: 20px;
-    gap: 2rem;
+    /*===== Layout / Flow =====*/
+    justify-content: center;
+    /*===== Size / Spacing =====*/
+    padding-left: 50px;
   }
 }
 @media (min-width: 380px) {
   header {
+    /*===== Positioning =====*/
     position: relative;
   }
   .header-logo {
-    max-height: 32px;
+    /*===== Positioning =====*/
     position: absolute;
     top: 12px;
+    /*===== Size / Spacing =====*/
+    max-height: 32px;
   }
   .nav-menu {
+    /*===== Positioning =====*/
     top: 15px;
     right: 12px;
   }
 }
 @media (min-width: 420px) {
+  #mini-CTAHeader {
+    /*===== Text / Font =====*/
+    font-size: 20px;
+  }
   #serviceArea {
+    /*===== Size / Spacing =====*/
     max-width: 85vw;
   }
   .header-logo {
+    /*===== Size / Spacing =====*/
     max-height: 40px;
   }
 }
+
+/*================
+Media Queries: Tablet
+================*/
+
+@media (min-width: 600px) {}
