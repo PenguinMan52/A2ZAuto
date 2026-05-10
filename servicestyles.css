@@ -1,0 +1,49 @@
+/*======================
+Global Reset / Defaults
+======================*/
+
+:root {
+  --header-bg: oklch(8% 0.0025 260);
+  --header-color: oklch(58% 0.22 26 / 0.9);
+  --nav-bg: oklch(15% 0 0);
+  --hamburgerLine-color: oklch(60% 0.24 33 / 0.83);
+  --body-bg: oklch(12% 0.0025 260);
+  --header-font: Montserrat;
+  --headerText-color: oklch(55% 0.18 28);
+  --text-color: oklch(62% 0.00005 29);
+  --paragraph-font: Merriweather Sans;
+  --cardHeader-color: oklch();
+  --card-color: oklch(15% 0.007 215);
+  --button-color: oklch(55% 0.15 28);
+  --accent-color: oklch(40% 0.025 260);
+}
+html {
+  scroll-behavior: auto;
+}
+body {
+  padding: 0px;
+  margin: 0px;
+  background: var(--body-bg);
+  color: var(--text-color);
+}
+
+/*==========
+Base Elements
+==========*/
+
+body p {
+  /*===== Size / Spacing =====*/
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  /*===== Text / Font =====*/
+  font-family: var(--paragraph-font);
+  font-size: 15px;
+}
+#falsebody {
+  /*===== Visual / Decoration =====*/
+  background: oklch(11% 0.002 270);
+}
+h1 {
+  /*===== Text / Font =====*/
+  font-family: var(--header-font);
+}
